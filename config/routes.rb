@@ -17,6 +17,7 @@ AdoptAThing::Application.routes.draw do
 
   resource :reminders
   resource :things
+  resource :species
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'main#index'
 end

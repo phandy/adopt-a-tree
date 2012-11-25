@@ -1,0 +1,14 @@
+class SeedLtlocations < ActiveRecord::Migration
+  def up
+    # Front Side Oppos Rear
+    # don't do N/A, which is implied if trees has null value
+    Ltlocation.create('Front')
+    Ltlocation.create('Side')
+    Ltlocation.create('Oppos')
+    Ltlocation.create('Rear')
+  end
+
+  def down
+    Ltlocation.delete_all
+  end
+end

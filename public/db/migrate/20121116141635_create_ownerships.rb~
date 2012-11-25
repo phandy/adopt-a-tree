@@ -1,0 +1,16 @@
+class CreateOwnerships < ActiveRecord::Migration
+  def change
+  
+    # ownerships lookup table
+    # City Joint Private
+    create_table :ownerships do |t|
+      t.string :name
+      t.timestamps
+    end
+    
+    # modify the trees table so it can use the new table
+    change_column :trees, :ownership, :integer
+    rename_column :trees, :ownership, :ownership_id
+    
+  end
+end

@@ -1,0 +1,48 @@
+.table
+  .table-row
+    .table-cell.sidebar
+      %h1
+        %a{:href => "http://ecologyottawa.ca/"}
+          = image_tag "logos/ecologyottawa.png", :alt => t("sponsors.ecologyottawa", :thing => t("defaults.thing").titleize), :title => t("sponsors.ecologyottawa", :thing => t("defaults.thing").titleize)
+        = image_tag "logos/adopt-a-tree.png", :alt => t("titles.main", :thing => t("defaults.thing").titleize), :title => t("titles.main", :thing => t("defaults.thing").titleize)
+      %p.alert-message.block-message#tagline
+        = t("defaults.tagline")
+      #content
+        = render :partial => "layouts/flash", :locals => {:flash => flash}
+        - if signed_in?
+          = render :partial => "sidebar/search"
+        - else
+          = render :partial => "sidebar/combo_form"
+      #logos
+        %label#tagline
+          = t("sponsors.tagline")
+        #col1
+          %a{:href => "http://ottawa.hiddenharvest.ca/"}
+            = image_tag "logos/hh_logo.png", :alt => t("sponsors.hiddenharvest"), :title => t("sponsors.hiddenharvest")
+          %br
+          %a{:href => "http://www.syc-cjs.org/shs"}
+            = image_tag "logos/syc-cjs_logo.png", :alt => t("sponsors.syc-cjs"), :title => t("sponsors.syc-cjs")
+          %br
+          %a{:href => "http://www.stuartbernstein.com/dianaberesford-kroeger.html"}
+            = image_tag "logos/Diana_Beresford-Kroeger.png", :alt => t("sponsors.dbk"), :title => t("sponsors.dbk")
+          %br
+          %a{:href => "http://www.markcullen.com/"}
+            = image_tag "logos/markcullen.png", :alt => t("sponsors.markcullen"), :title => t("sponsors.markcullen")
+          %br
+          %a{:href => "http://codeforamerica.org/"}
+            = image_tag "logos/cfa.png", :alt => t("sponsors.cfa"), :title => t("sponsors.cfa")
+        #col2
+          %a{:href => "http://ottawa.ca/"}
+            = image_tag "logos/ottawa.png", :alt => t("sponsors.city"), :title => t("sponsors.city")
+          %p#mayor
+            %a{:href => "http://ottawa.ca/en/city_hall/councilcommittees/mayor_council/mayor/"}
+              = "#{t("sponsors.mayor.name")},"
+              %em
+                = t("sponsors.mayor.title")
+      #feedback
+        %p
+          %a{:href => URI.escape("mailto:info@ecologyottawa.ca?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} #{t("links.feedback").titleize}")}
+            = t("links.feedback")
+    .table-cell.map-container
+      #map
+        &nbsp;

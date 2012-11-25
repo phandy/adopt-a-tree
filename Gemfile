@@ -19,6 +19,7 @@ end
 
 group :assets do
   gem 'sass-rails'
+  gem 'therubyracer', :platforms => :ruby
   gem 'uglifier'
 end
 
