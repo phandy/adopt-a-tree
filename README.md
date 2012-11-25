@@ -1,23 +1,17 @@
-# Adopt-a-Hydrant [![Build Status](https://secure.travis-ci.org/codeforamerica/adopt-a-hydrant.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/codeforamerica/adopt-a-hydrant.png?travis)][gemnasium]
-Claim responsibility for shoveling out a fire hydrant after it snows.
-
-[travis]: http://travis-ci.org/codeforamerica/adopt-a-hydrant
-[gemnasium]: https://gemnasium.com/codeforamerica/adopt-a-hydrant
+# Adopt-a-Tree (Ecology Ottawa)
+We need to plant more trees and take better care of existing trees.
 
 ## Screenshot
-![Adopt-a-Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt-a-Hydrant")
+![Adopt-a-Tree](https://github.com/kenwebb/adopt-a-tree/raw/master/screenshot.png "Adopt-a-Tree")
 
 ## Demo
-You can see a running version of the application at
-[http://adopt-a-hydrant.herokuapp.com/][demo].
-
-[demo]: http://adopt-a-hydrant.herokuapp.com/
+There will be a running version of the application available soon.
 
 ## Installation
 This application requires [Postgres](http://www.postgresql.org/) to be installed
 
-    git clone git://github.com/codeforamerica/adopt-a-hydrant.git
-    cd adopt-a-hydrant
+    git clone https://github.com/kenwebb/adopt-a-tree.git
+    cd adopt-a-tree
     bundle install
 
     bundle exec rake db:create
@@ -48,11 +42,10 @@ Here are some ways *you* can contribute:
 * by refactoring code
 * by closing [issues][]
 * by reviewing patches
-* [financially][]
+* financially
 
-[locales]: https://github.com/codeforamerica/adopt-a-hydrant/tree/master/config/locales
-[issues]: https://github.com/codeforamerica/adopt-a-hydrant/issues
-[financially]: https://secure.codeforamerica.org/page/contribute
+[locales]: https://github.com/kenwebb/adopt-a-tree/tree/master/config/locales
+[issues]: https://github.com/kenwebb/adopt-a-tree/issues
 
 ## Submitting an Issue
 We use the [GitHub issue tracker][issues] to track bugs and features. Before
