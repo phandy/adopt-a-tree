@@ -5,7 +5,7 @@ We need to plant more trees and take better care of existing trees.
 ![Adopt-a-Tree](https://github.com/kenwebb/adopt-a-tree/raw/master/screenshot.png "Adopt-a-Tree")
 
 ## Demo
-There will be a running version of the application available soon.
+A running version of the application is available at http://adopt-a-tree.herokuapp.com/ .
 
 ## Installation
 This application requires [Postgres](http://www.postgresql.org/) to be installed
