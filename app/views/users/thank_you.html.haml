@@ -1,3 +1,11 @@
 %h2
   = t("titles.thank_you", :thing => t("defaults.thing"))
+%p
+  = [@thing.tree.species.name, " (diam=", @thing.tree.dbh, (true == @thing.tree.species.edible) ? " edible?" : "", (0 != @thing.tree.treatment_id) ? [" ", @thing.tree.treatment.name, "_", @thing.tree.treatment_tagnum].join : "", ")"].join
+%p
+  = [@thing.tree.addnum, " ", @thing.tree.addstr, " (", @thing.tree.ltlocation.name, " ", @thing.tree.ownership.name, (true == @thing.tree.park) ? " park" : "", ")"].join
+%p
+  = [@thing.tree.ward.name, " ward"].join
+%p
+  = [@thing.name].join
 = render :partial => 'things/abandon'
