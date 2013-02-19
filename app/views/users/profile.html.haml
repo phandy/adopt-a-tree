@@ -4,5 +4,11 @@
   = t("titles.byline", :name => @thing.user.name)
   %br
   = t("titles.ofline", :organization => @thing.user.organization) unless @thing.user.organization.blank?
+  %p
+    = [@thing.tree.species.name, " (diam=", @thing.tree.dbh, (true == @thing.tree.species.edible) ? " edible?" : "", (0 != @thing.tree.treatment_id) ? [" ", @thing.tree.treatment.name, "_", @thing.tree.treatment_tagnum].join : "", ")"].join
+  %p
+    = [@thing.tree.addnum, " ", @thing.tree.addstr, " (", @thing.tree.ltlocation.name, " ", @thing.tree.ownership.name, (true == @thing.tree.park) ? " park" : "", ")"].join
+  %p
+    = [@thing.tree.ward.name, " ward"].join
 - if user_signed_in?
   = render :partial => 'users/reminder'
