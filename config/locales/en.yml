@@ -47,7 +47,7 @@ en:
     email: "Email address"
     name: "Name"
     name_thing: "Give this %{thing} a name"
-    organization: "Ecology Ottawa"
+    organization: "Organization"
     password: "Password"
     password_choose: "Choose a password"
     password_current: "Current password"
