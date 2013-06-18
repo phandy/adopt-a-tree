@@ -1,7 +1,7 @@
 %h2
   = t("titles.adopt", :thing => t("defaults.thing").titleize)
 %p
-  = [@thing.tree.species.name, " (diam=", @thing.tree.dbh, (true == @thing.tree.species.edible) ? " edible?" : "", (0 != @thing.tree.treatment_id) ? [" ", @thing.tree.treatment.name, "_", @thing.tree.treatment_tagnum].join : "", ")"].join
+  = [@thing.tree.species.name, " (diam=", @thing.tree.dbh, (0 != @thing.tree.treatment_id) ? [" ", @thing.tree.treatment.name, "_", @thing.tree.treatment_tagnum].join : "", ")"].join
 %p
   = [@thing.tree.addnum, " ", @thing.tree.addstr, " (", @thing.tree.ltlocation.name, " ", @thing.tree.ownership.name, (true == @thing.tree.park) ? " park" : "", ")"].join
 %p
@@ -12,5 +12,9 @@
   %fieldset.control-group
     = f.label "name", t("labels.name_thing", :thing => t("defaults.thing")), :id => "thing_name_label"
     = f.text_field "name"
+  %fieldset.control-group
+    - if @thing.tree.species.edible
+      = check_box_tag "edible"
+      = f.label "edible", t("fruitnuts.have_seen"), :class => "label_edible"
   %fieldset.control-group
     = f.submit t("buttons.adopt"), :class => "btn primary"

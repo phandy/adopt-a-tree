@@ -38,6 +38,11 @@ fr:
   errors:
     password: "Vous devez vous identifier ou vous inscrire avant de continuer."
     not_found: "Impossible de trouver %{thing}."
+  fruitnuts:
+    fruitnuts_label: "fruitnuts"
+    have_seen: "[fr]Have seen fruit or nuts on tree"
+    share_with: "[fr]Information about food-bearing trees is shared with Hidden Harvest Ottawa, a Tree Ottawa partner."
+    ok_get_in_touch: "[fr]They can contact me"
   labels:
     address: "Adresse, Quartier"
     address_1: "Adresse ligne 1"

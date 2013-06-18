@@ -34,6 +34,12 @@
         %small
           = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
       = f.telephone_field "sms_number", :placeholder => t("defaults.sms_number")
+    
+    %fieldset.control-group
+    = f.label "sharewith", t("fruitnuts.share_with")
+    = check_box_tag "fruitnuts_contact", "fruitnuts", :checked => "checked"
+    = f.label "fruitnuts_contact", t("fruitnuts.ok_get_in_touch"), :class => "label_fruitnuts", :alt => t("captions.private"), :title => t("captions.private")
+    
     .control-group
       %label{:for => "user_password_confirmation", :id => "user_password_confirmation_label"}
         = t("labels.password_choose")

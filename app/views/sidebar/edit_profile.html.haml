@@ -61,6 +61,10 @@
         = image_tag "lock.png", :class => "lock", :alt => t("captions.private"), :title => t("captions.private")
     = f.text_field "zip", :placeholder => t("defaults.zip")
   %fieldset.control-group
+    = f.label "sharewith", t("fruitnuts.share_with")
+    = check_box_tag "fruitnuts_contact", "fruitnuts"
+    = f.label "fruitnuts_contact", t("fruitnuts.ok_get_in_touch"), :class => "label_fruitnuts", :alt => t("captions.private"), :title => t("captions.private")
+  %fieldset.control-group
     %label{:for => "user_password", :id => "user_password_label"}
       = t("labels.password_new")
       %small

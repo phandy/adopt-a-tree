@@ -11,6 +11,8 @@ class ThingsController < ApplicationController
   end
 
   def update
+    # logger.info(params[:id])
+    # logger.info(params[:tree])
     @thing = Thing.find(params[:id])
     if @thing.update_attributes(thing_params)
       respond_with @thing
