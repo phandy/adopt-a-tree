@@ -1,6 +1,7 @@
 !!! 5
 %html
   %head
+    = yield :head
     %title
       = t("titles.main", :thing => t("defaults.thing").titleize)
     = csrf_meta_tag
