@@ -1,0 +1,18 @@
+<%= render "admin/sidebar" %>
+<h1>Hello</h1>
+<input type="file" id="fileinput" />
+<script type="text/javascript">
+	function readSingleFile(evt){
+		// Retrieve a File object
+		var r = new FileReader();
+		var f = evt.target.files[0];
+		r.onload = function(e){
+			var contents = e.target.result;
+			alert( "Got the file : " +f.name );
+		};
+	}
+	
+	window.onload = function (){
+		document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+	};
+</script>

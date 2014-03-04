@@ -1,0 +1,8 @@
+!!! 5
+%html
+  %head
+    = yield :head
+    %title
+      = t("titles.main", :thing => t("defaults.thing").titleize)
+  %body
+    = yield

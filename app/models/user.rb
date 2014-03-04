@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates_formatting_of :voice_number, using: :us_phone, allow_blank: true
   validates_formatting_of :zip, using: :us_zip, allow_blank: true
   validates_presence_of :name
+  attr_accessible :admin
   has_many :reminders_to, class_name: "Reminder", foreign_key: "to_user_id"
   has_many :reminders_from, class_name: "Reminder", foreign_key: "from_user_id"
   has_many :things
