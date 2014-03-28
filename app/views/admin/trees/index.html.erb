@@ -1,51 +1,32 @@
 
 <% content_for :head do %>
-<script type="text/javascript">
-	function onFileInputChange(evt){
-		// Retrieve a File object
-		var reader = new FileReader();
-		var f = GetFileObject();
-		r.readAsText(f);
-		
-		FileReader.onload = function(e){
-			//var contents = e.target.result;
-			//Parse the text to determine it's format
-			
-			alert( "Got the file : " +f.name );
-		};
-		
-	}
-	function onFileFormatChange(evt){
-	}
-	
-	function validateSelectedFile(){
-	}
-	
-	function GetSelectedFormat(){
-		var selectedFormat = document.getElementById("fileformat").value;
-		return selectedFormat;
-	}
-	
-	function GetFileObject(){
-		var selectedFile = document.getElementById("fileinput").files[0];
-		return selectedFile;
-	}
-	
-	window.onload = function (){
-		document.getElementById('fileinput').addEventListener('change', onFileInputChange, false);
-		document.getElementById('fileformat').addEventListener('change', onFileFormatChange, false);
-	};
-</script>
 <% end %>
-
 <%= render "admin/sidebar" %>
+
+<h1>All Trees</h1>
 <!-- Import Trees Button -->
-<input type="file" id="fileinput" />
-<select id="fileformat">
-  <option value="ottawa">City of Ottawa</option>
-  <option value="RVCA">RVCA</option>
-  <option value="NCC">NCC</option>
-</select>
+
 <!-- Add New Tree Button -->
 
 <!-- Paginated list of records -->
+<%= paginate @trees %>
+<table>
+  <tr>
+    <th>Address</th>
+    <th>Species</th>
+    <th>Owned By</th>
+    <th>Name</th>
+	<th>Delete</th>
+  </tr>
+ <% i = 0 %>
+<% @trees.each do |tree| %>
+	<% i += 1%>
+  <tr>
+    <td><%= tree.addnum.to_s + " " + tree.addstr %></td>
+	<td><%= tree.species.name%></td>
+    <td><%= tree.ownership.name %></td>
+	<td><%= tree.thing.name%></td>
+  </tr>
+<% end %>
+</table>
+<%= paginate @trees %>
