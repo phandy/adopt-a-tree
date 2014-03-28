@@ -1,4 +1,4 @@
-<%= render "admin/sidebar" %>
+
 <% content_for :head do %>
 <script type="text/javascript">
 	function onFileInputChange(evt){
@@ -36,12 +36,16 @@
 		document.getElementById('fileformat').addEventListener('change', onFileFormatChange, false);
 	};
 </script>
-  
 <% end %>
-<h1>Hello</h1>
+
+<%= render "admin/sidebar" %>
+<!-- Import Trees Button -->
 <input type="file" id="fileinput" />
 <select id="fileformat">
   <option value="ottawa">City of Ottawa</option>
   <option value="RVCA">RVCA</option>
   <option value="NCC">NCC</option>
 </select>
+<!-- Add New Tree Button -->
+
+<!-- Paginated list of records -->

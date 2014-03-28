@@ -8,8 +8,11 @@ AdoptAThing::Application.routes.draw do
   get '/address', to: 'addresses#show', as: 'address'
   get '/info_window', to:'info_window#index', as: 'info_window'
   get '/sitemap', to: 'sitemaps#index', as: 'sitemap'
-  get '/admin', to: 'admin#index', as: 'admin'
-
+  namespace :admin do
+	get 'trees', to: 'trees#index', as: 'admin/trees'
+	get 'users', to: 'users#index', as: 'admin/users'
+    get '', to: 'dashboard#index', as: 'dashboard'
+  end
   
   scope '/sidebar', controller: :sidebar do
     get :search, as: 'search'
@@ -20,6 +23,6 @@ AdoptAThing::Application.routes.draw do
   resource :reminders
   resource :things
   resource :species
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'main#index'
 end
