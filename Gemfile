@@ -12,6 +12,7 @@ gem 'pg'
 gem 'rails_admin'
 gem 'strong_parameters'
 gem 'validates_formatting_of'
+gem 'kaminari'
 
 platforms :ruby_18 do
   gem 'fastercsv'
