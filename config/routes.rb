@@ -10,6 +10,7 @@ AdoptAThing::Application.routes.draw do
   get '/sitemap', to: 'sitemaps#index', as: 'sitemap'
   namespace :admin do
 	get 'trees', to: 'trees#index', as: 'admin/trees'
+	get 'trees/import', to: 'trees#import', as: 'admin/trees/import'
 	get 'users', to: 'users#index', as: 'admin/users'
     get '', to: 'dashboard#index', as: 'dashboard'
   end
