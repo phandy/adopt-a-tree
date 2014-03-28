@@ -3,6 +3,7 @@ class Admin::TreesController < ApplicationController
   respond_to :json
 
   def index
+	verify_is_admin()
   end
 
 end

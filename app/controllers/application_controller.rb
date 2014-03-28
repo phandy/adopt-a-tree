@@ -19,4 +19,7 @@ protected
     end
     I18n.locale = request.compatible_language_from(available_languages) || I18n.default_locale
   end
+  def verify_is_admin
+	(current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.admin?)
+  end
 end
