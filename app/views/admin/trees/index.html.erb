@@ -1,12 +1,11 @@
-
 <% content_for :head do %>
 <% end %>
-<%= render "admin/sidebar" %>
+
+<% content_for :actions do %>
+<% render "admin/trees/actions" %>
+<% end %>
 
 <h1>All Trees</h1>
-<!-- Import Trees Button -->
-
-<!-- Add New Tree Button -->
 
 <!-- Paginated list of records -->
 <%= paginate @trees %>

@@ -5,4 +5,7 @@
     %title
       = t("titles.main", :thing => t("defaults.thing").titleize)
   %body
+    = render "admin/sidebar"
+    %div{:class => "admin_actions"}
+      = yield :actions
     = yield

@@ -11,6 +11,7 @@ AdoptAThing::Application.routes.draw do
   namespace :admin do
 	get 'trees', to: 'trees#index', as: 'admin/trees'
 	get 'trees/import', to: 'trees#import', as: 'admin/trees/import'
+	get 'trees/new', to: 'trees#new', as: 'admin/trees/new'
 	get 'users', to: 'users#index', as: 'admin/users'
     get '', to: 'dashboard#index', as: 'dashboard'
   end

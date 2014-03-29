@@ -14,4 +14,7 @@ class Admin::TreesController < ApplicationController
   end
   def import
   end
+  
+  def new
+  end
 end
