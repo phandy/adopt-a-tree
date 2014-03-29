@@ -12,6 +12,7 @@ AdoptAThing::Application.routes.draw do
 	get 'trees', to: 'trees#index', as: 'admin/trees'
 	get 'trees/import', to: 'trees#import', as: 'admin/trees/import'
 	get 'trees/new', to: 'trees#new', as: 'admin/trees/new'
+	get 'trees/delete/:id', to: 'trees#delete', as: 'admin/trees/delete'
 	get 'users', to: 'users#index', as: 'admin/users'
     get '', to: 'dashboard#index', as: 'dashboard'
   end

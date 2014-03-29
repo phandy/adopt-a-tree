@@ -12,9 +12,18 @@ class Admin::TreesController < ApplicationController
       format.json  { render :json => @trees }
     end
   end
-  def import
-  end
   
   def new
+	verify_is_admin()
   end
+  
+  def delete 
+	#Params :id
+    verify_is_admin()
+  end
+  
+  def import
+	verify_is_admin()
+  end
+  
 end
