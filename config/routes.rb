@@ -12,6 +12,7 @@ AdoptAThing::Application.routes.draw do
 	get 'trees', to: 'trees#index', as: 'admin/trees'
 	get 'trees/import', to: 'trees#import', as: 'admin/trees/import'
 	get 'trees/new', to: 'trees#new', as: 'admin/trees/new'
+	get 'trees/create', to: 'trees#create', as: 'admin/trees/create'
 	get 'trees/delete/:id', to: 'trees#delete', as: 'admin/trees/delete'
 	get 'users', to: 'users#index', as: 'admin/users'
     get '', to: 'dashboard#index', as: 'dashboard'
@@ -26,6 +27,6 @@ AdoptAThing::Application.routes.draw do
   resource :reminders
   resource :things
   resource :species
-  #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin2', as: 'rails_admin'
   root to: 'main#index'
 end

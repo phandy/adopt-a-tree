@@ -1,11 +1,18 @@
 !!! 5
 %html
   %head
+    = stylesheet_link_tag "admin"
     = yield :head
     %title
       = t("titles.main", :thing => t("defaults.thing").titleize)
   %body
-    = render "admin/sidebar"
-    %div{:class => "admin_actions"}
-      = yield :actions
-    = yield
+    %div{:class => "column", :id=>"admin_header"}
+      = render "admin/header"
+    %div{:id => "admin_container"}
+      %div{:class => "column", :id=>"admin_content"}
+        %div{:class => "admin_actions"}
+          = yield :actions
+        %div{:id => "admin_table"}
+          = yield
+      %div{:class => "column", :id=>"admin_sidebar"}
+        = render "admin/sidebar"

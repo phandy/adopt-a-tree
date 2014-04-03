@@ -1,0 +1,49 @@
+body {
+	min-width: 200px;
+}
+
+/* sidebar width: 200px*/
+#admin_header{
+	background: #CEC;
+}
+#admin_container{
+	padding-left:200px; /*sidebar width*/
+}
+#admin_container .column{
+	float:left;
+	position:relative;
+}
+
+#admin_sidebar{
+	width:200px;
+	margin-left: -100%;  
+	right: 200px;        /* sidebar width */
+}
+#admin_sidebar .a{
+}
+#admin_content{
+	width:100%;
+}
+#admin_table{
+	border:1px solid black;
+}
+
+.admin_form_item{
+	padding-bottom:5px;
+}
+label.admin_label{
+	float:left;
+	width:140px;
+	text-align:right;
+}
+.actions{
+}
+.action_tag{
+	display:inline;
+	border: 1px solid grey;
+	position:relative;
+	top: -5px;
+	height:75px;
+	margin:0px;
+	padding:5px;
+}

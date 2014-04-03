@@ -15,6 +15,8 @@ class Admin::TreesController < ApplicationController
   
   def new
 	verify_is_admin()
+	
+	@new_tree = Tree.new
   end
   
   def delete 

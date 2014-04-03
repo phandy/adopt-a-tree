@@ -1,6 +1,12 @@
 
 <div id="trees_actions" class="actions">
-<%= link_to "List", controller: "trees" %>
-<%= link_to "Add", controller: "trees", action: "new" %>
-<%= link_to "Import", controller: "trees", action:"import" %>
+	<div class="action_tag">
+		<%= link_to "List", controller: "trees" %>
+	</div>
+	<div class="action_tag">
+		<%= link_to image_tag("add-icon.png") + "Add", controller: "trees", action: "new" %>
+	</div>
+	<div class="action_tag">
+		<%= link_to "Import", controller: "trees", action:"import" %>
+	</div>
 </div>
