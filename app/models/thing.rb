@@ -1,5 +1,5 @@
 class Thing < ActiveRecord::Base
-  include ActiveModel::ForbiddenAttributesProtection
+  #include ActiveModel::ForbiddenAttributesProtection
   include Geokit::Geocoders
   #attr_accessible :name, :city_id, :lat, :lng, :user_id, :tree_attributes
   validates_uniqueness_of :city_id, allow_nil: true

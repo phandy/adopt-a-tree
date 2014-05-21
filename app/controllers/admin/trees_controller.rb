@@ -16,7 +16,26 @@ class Admin::TreesController < ApplicationController
   def new
 	verify_is_admin()
 	
-	@new_tree = Tree.new
+	@new_tree = Thing.new
+  end
+  def create
+    verify_is_admin()
+	params[:thing][:tree_attributes].delete :commit
+	@tree = Thing.new(params[:thing])	
+	
+	respond_to do |format|
+		if @tree.save
+			format.html { redirect_to action: 'new', notice: 'User was successfully created.' }
+			format.js   {}
+			format.json { render json: @tree, status: :created, location: @user }
+		else
+			format.html { render action: "new" }
+			format.json { render json: @tree.errors, status: :unprocessable_entity }
+		end
+	end
+  end
+  
+  def show
   end
   
   def delete 
@@ -27,5 +46,4 @@ class Admin::TreesController < ApplicationController
   def import
 	verify_is_admin()
   end
-  
 end

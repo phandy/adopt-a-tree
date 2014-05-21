@@ -13,9 +13,14 @@ class ThingsController < ApplicationController
   def update
     # logger.info(params[:id])
     # logger.info(params[:tree])
-    @thing = Thing.find(params[:id])
+    if params.has_key? :id
+      @thing = Thing.find(params[:id])
+    else
+      @thing = Thing.find(request[:thing][:id])
+    end
     if @thing.update_attributes(thing_params)
-      respond_with @thing
+      flash[:notice] = "Thank you for your commitment!"
+      redirect_to(root_path)
     else
       render(json: {errors: @thing.errors}, status: 500)
     end
@@ -25,5 +30,9 @@ class ThingsController < ApplicationController
 
   def thing_params
     params.require(:thing).permit(:name, :user_id)
+  end
+  
+  def pledge
+    @thing = Thing.find(params[:id])
   end
 end

@@ -6,26 +6,36 @@
 <%= render "admin/trees/actions" %>
 <% end %>
 
-<%= form_for @new_tree, url: {action: "create"} do |f| %>
+<%= form_for setup_tree(@new_tree), url: {action: "create"} do |f| %>
 	<div class="admin_form_item">
-		<%= label_tag(:addnum, "Address Number", class: 'admin_label') %>
-		<%= f.text_field :addnum %><br>
+		<%= label_tag(:lng, "Longitude", class: 'admin_label') %>
+		<%= f.text_field :lng %><br>
 	</div>
 	<div class="admin_form_item">
-		<%= label_tag(:addstr, "Address Street", class: 'admin_label') %>
-		<%= f.text_field :addstr %><br>
+		<%= label_tag(:lat, "Latitude", class: 'admin_label') %>
+		<%= f.text_field :lat %><br>
 	</div>
-	<div class="admin_form_item">
-		<%= label_tag(:ward_id, "Ward", class: 'admin_label') %>
-		<%= f.collection_select(:ward_id, Ward.all, :id, :name,{:include_blank => '<Ward>'} ) %><br>
-	</div>
-	<div class="admin_form_item">
-		<%= label_tag(:species_id, "Species", class: 'admin_label') %>
-		<%= f.collection_select(:species_id, Species.all, :id, :name,{:include_blank => '<Tree species>'} ) %><br>
-	</div>
-	<div class="admin_form_item">
-		<%= label_tag(:ownership_id, "Ownership", class: 'admin_label') %>
-		<%= f.collection_select(:ownership_id, Ownership.all, :id, :name,{:include_blank => '<Tree ownership>'} ) %><br>
-	</div>
+	<%= f.fields_for :tree do |ff| %>
+		<div class="admin_form_item">
+			<%= label_tag(:addnum, "Address Number", class: 'admin_label') %>
+			<%= ff.text_field :addnum %><br>
+		</div>
+		<div class="admin_form_item">
+			<%= label_tag(:addstr, "Address Street", class: 'admin_label') %>
+			<%= ff.text_field :addstr %><br>
+		</div>
+		<div class="admin_form_item">
+			<%= label_tag(:ward_id, "Ward", class: 'admin_label') %>
+			<%= ff.collection_select(:ward_id, Ward.all, :id, :name,{:include_blank => '<Ward>'} ) %><br>
+		</div>
+		<div class="admin_form_item">
+			<%= label_tag(:species_id, "Species", class: 'admin_label') %>
+			<%= ff.collection_select(:species_id, Species.all, :id, :name,{:include_blank => '<Tree species>'} ) %><br>
+		</div>
+		<div class="admin_form_item">
+			<%= label_tag(:ownership_id, "Ownership", class: 'admin_label') %>
+			<%= ff.collection_select(:ownership_id, Ownership.all, :id, :name,{:include_blank => '<Tree ownership>'} ) %><br>
+		</div>
+	<% end %>
 	<%= f.submit "Add tree" %>
 <% end %>
