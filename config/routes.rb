@@ -8,13 +8,12 @@ AdoptAThing::Application.routes.draw do
   get '/address', to: 'addresses#show', as: 'address'
   get '/info_window', to:'info_window#index', as: 'info_window'
   get '/sitemap', to: 'sitemaps#index', as: 'sitemap'
+  get '/things/pledge/:id', to:'things#pledge', as: 'pledge'
   namespace :admin do
-	get 'trees', to: 'trees#index', as: 'admin/trees'
 	get 'trees/import', to: 'trees#import', as: 'admin/trees/import'
-	get 'trees/new', to: 'trees#new', as: 'admin/trees/new'
-	get 'trees/create', to: 'trees#create', as: 'admin/trees/create'
-	get 'trees/delete/:id', to: 'trees#delete', as: 'admin/trees/delete'
+	resources :trees
 	get 'users', to: 'users#index', as: 'admin/users'
+	get 'users/export', to: 'users#export', as: 'admin/users/export'
     get '', to: 'dashboard#index', as: 'dashboard'
   end
   

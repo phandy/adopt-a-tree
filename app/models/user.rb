@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
+  attr_accessible :email,:fruitnuts_contact, :name, :organization, :voice_number, :sms_number, :password, :password_confirmation
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

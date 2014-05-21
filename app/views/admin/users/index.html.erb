@@ -1,4 +1,42 @@
 <%= content_for :head do %>
 <% end %>
 
-<h1> Users </h1>
+<% content_for :actions do %>
+  <h1>All Users</h1>
+  <%= render "admin/users/actions" %>
+<% end %>
+<!-- Paginated list of records -->
+<%= paginate @users %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Joined At</th>
+    <th>Name</th>
+    <th>Organization</th>
+    <th>E-Mail</th>
+    <th>Phone Number</th>
+    <th>Address 1</th>
+    <th>Address 2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip Code</th>
+  </tr>
+ <% i = 0 %>
+<% @users.each do |user| %>
+	<% i += 1%>
+  <tr>
+    <td><%= user.id %></td>
+	<td><%= user.created_at %></td>
+    <td><%= user.name %></td>
+	<td><%= user.organization %></td>
+	<td><%= user.email %></td>
+	<td><%= user.voice_number %></td>
+	<td><%= user.address_1 %></td>
+	<td><%= user.address_2 %></td>
+	<td><%= user.city %></td>
+	<td><%= user.state %></td>
+	<td><%= user.zip %></td>
+  </tr>
+<% end %>
+</table>
+<%= paginate @users %>
