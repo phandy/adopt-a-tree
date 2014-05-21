@@ -1,0 +1,18 @@
+
+= form_for :thing, :url => things_path, :method => :put, :html => {:id => "pledge_form"} do |f|
+  = f.hidden_field "id", :value => params[:id]
+  = f.hidden_field "user_id", :value => current_user.id
+  %p
+    Trees are vulnerable to a multitude of stressors, such as drought, insects, and disease. Tree Ottawa’s Adopt-a-Tree Program aims to significantly improve a tree’s chance of survival by getting residents to commit to performing basic tree care for their local trees. In fact, adopted trees have been known to grow more than twice as quickly as than those that do not receive adequate aftercare. By adopting a tree in your neighbourhood, you can help create a thriving and healthy urban tree canopy in our city for future generations to come.
+  %p
+    I pledge to:
+    Water my tree on a regular basis
+    Protect my tree from damage by animals, cars, lawn mowers, and vandalism
+    Weed and mulch my tree as often as required
+    Monitor any changes in my tree’s condition and report it to the City for care
+  
+  %fieldset.control-group
+    = f.label "name", t("labels.name_thing", :thing => t("defaults.thing")), :id => "thing_name_label"
+    = f.text_field "name"
+  %fieldset.control-group
+    = f.submit t("buttons.adopt"), :class => "btn primary"

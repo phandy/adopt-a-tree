@@ -6,15 +6,4 @@
   = [@thing.tree.addnum, " ", @thing.tree.addstr, " (", @thing.tree.ltlocation.name, " ", @thing.tree.ownership.name, (true == @thing.tree.park) ? " park" : "", ")"].join
 %p
   = [@thing.tree.ward.name, " ward"].join
-= form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
-  = f.hidden_field "id"
-  = f.hidden_field "user_id", :value => current_user.id
-  %fieldset.control-group
-    = f.label "name", t("labels.name_thing", :thing => t("defaults.thing")), :id => "thing_name_label"
-    = f.text_field "name"
-  %fieldset.control-group
-    - if @thing.tree.species.edible
-      = check_box_tag "edible"
-      = f.label "edible", t("fruitnuts.have_seen"), :class => "label_edible"
-  %fieldset.control-group
-    = f.submit t("buttons.adopt"), :class => "btn primary"
+= link_to "Adopt", controller: "things", action: "pledge", id: @thing

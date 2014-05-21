@@ -1,5 +1,6 @@
 class SessionsController < Devise::SessionsController
   def new
+    flash[:notice] = "Welcome!"
     redirect_to(root_path)
   end
 

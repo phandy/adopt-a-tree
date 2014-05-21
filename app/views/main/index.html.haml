@@ -8,7 +8,6 @@
       %p.alert-message.block-message#tagline
         = t("defaults.tagline")
       #content
-        = render :partial => "layouts/flash", :locals => {:flash => flash}
         - if signed_in?
           = render :partial => "sidebar/search"
         - else
@@ -44,5 +43,6 @@
           %a{:href => URI.escape("mailto:info@ecologyottawa.ca?subject=#{t("titles.main", :thing => t("defaults.thing").titleize)} - #{t("links.feedback").titleize}")}
             = t("links.feedback")
     .table-cell.map-container
+      = render :partial => "layouts/flash", :locals => {:flash => flash}
       #map
         &nbsp;
