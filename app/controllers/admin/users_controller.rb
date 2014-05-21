@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
   def index
 	verify_is_admin()
 	
-    @users = User.order('id')
+    @users = User.order('id').page(params[:page]).per(50)
  
     respond_to do |format|
       format.html  # index.html.erb
