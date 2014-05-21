@@ -16,6 +16,16 @@ class User < ActiveRecord::Base
   has_many :reminders_from, class_name: "Reminder", foreign_key: "from_user_id"
   has_many :things
   before_validation :remove_non_digits_from_phone_numbers
+  
+  def self.as_csv
+    CSV.generate(:row_sep => "\r\n") do |csv|
+      csv << column_names
+      all.each do |item|
+        csv << item.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   def remove_non_digits_from_phone_numbers
     self.sms_number = self.sms_number.to_s.gsub(/\D/, '').to_i if self.sms_number.present?
     self.voice_number = self.voice_number.to_s.gsub(/\D/, '').to_i if self.voice_number.present?

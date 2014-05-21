@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
   def index
 	verify_is_admin()
 	
-    @users = User.order('id').page(params[:page]).per(50)
+    @users = User.order('id')
  
     respond_to do |format|
       format.html  # index.html.erb
@@ -15,7 +15,10 @@ class Admin::UsersController < ApplicationController
   
   def export
     verify_is_admin()
-    render :json => @users
+    @users = User.order('id')
+	respond_to do |format|
+      format.csv {send_data @users.as_csv}
+	end
   end
 
 end
