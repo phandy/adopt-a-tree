@@ -15,6 +15,7 @@ AdoptAThing::Application.routes.draw do
 	resources :trees
 	get 'users', to: 'users#index', as: 'admin/users'
 	get 'users/export', to: 'users#export', as: 'admin/users/export'
+	get 'users/:id', to: 'users#show', as: 'admin/users/'
     get '', to: 'dashboard#index', as: 'dashboard'
   end
   

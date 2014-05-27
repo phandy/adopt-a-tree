@@ -13,6 +13,17 @@ class Admin::UsersController < ApplicationController
     end
   end
   
+  def show
+	verify_is_admin()
+	
+    @user = User.find(params[:id])
+ 
+    respond_to do |format|
+      format.html  # index.html.erb
+      format.json  { render :json => @users }
+    end
+  end
+  
   def export
     verify_is_admin()
     @users = User.order('id')

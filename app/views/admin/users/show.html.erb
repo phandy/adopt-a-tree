@@ -1,0 +1,7 @@
+<%= content_for :head do %>
+<% end %>
+
+<% content_for :actions do %>
+  <h1>Showing <%= @user.name %></h1>
+  <%= render "admin/users/actions" %>
+<% end %>

@@ -14,6 +14,7 @@
     <th>Species</th>
     <th>Owned By</th>
     <th>Name</th>
+	<th>Adopted By</th>
 	<th>Delete</th>
   </tr>
  <% i = 0 %>
@@ -22,8 +23,13 @@
   <tr>
     <td><%= tree.addnum.to_s + " " + tree.addstr %></td>
 	<td><%= tree.species.name%></td>
-    <td><%= tree.ownership.name %></td>
+	<td> <%= tree.ownership.name %> </td>
 	<td><%= tree.thing.name%></td>
+	<% if tree.thing.user != nil %>
+    <td><%= link_to tree.thing.user.name, controller: "users", action: "show", id: tree.thing.user.id %></td>
+	<% else %>
+	<td>No one</td>
+	<% end %>
 	<td><%= link_to image_tag("delete-icon.png"), controller: "trees", action: "delete", id: tree.id %>
     </td>
   </tr>

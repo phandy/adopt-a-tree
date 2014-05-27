@@ -25,9 +25,9 @@ class Admin::TreesController < ApplicationController
 	
 	respond_to do |format|
 		if @tree.save
-			format.html { redirect_to action: 'new', notice: 'User was successfully created.' }
+			format.html { redirect_to action: 'new', notice: 'Tree was successfully created.' }
 			format.js   {}
-			format.json { render json: @tree, status: :created, location: @user }
+			format.json { render json: @tree, status: :created, location: @tree }
 		else
 			format.html { render action: "new" }
 			format.json { render json: @tree.errors, status: :unprocessable_entity }
