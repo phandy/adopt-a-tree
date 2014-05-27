@@ -41,6 +41,8 @@ class Admin::TreesController < ApplicationController
   def delete 
 	#Params :id
     verify_is_admin()
+    Tree.find(params[:id]).destroy
+    redirect_to :action => 'index'
   end
   
   def import

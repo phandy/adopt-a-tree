@@ -11,6 +11,7 @@ AdoptAThing::Application.routes.draw do
   get '/things/pledge/:id', to:'things#pledge', as: 'pledge'
   namespace :admin do
 	get 'trees/import', to: 'trees#import', as: 'admin/trees/import'
+	get 'trees/delete/:id', to: 'trees#delete', as: 'admin/trees/delete/'
 	resources :trees
 	get 'users', to: 'users#index', as: 'admin/users'
 	get 'users/export', to: 'users#export', as: 'admin/users/export'
