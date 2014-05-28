@@ -5,3 +5,28 @@
   <h1>Showing <%= @user.name %></h1>
   <%= render "admin/users/actions" %>
 <% end %>
+
+<label>Name</label> <%= @user.name %><br>
+<label>Phone Number</label> <%= @user.voice_number %><br>
+<label>E-Mail</label> <%= @user.email %><br>
+<h1>Adopted Trees</h1>
+
+<table>
+  <tr>
+    <th>Address</th>
+    <th>Species</th>
+    <th>Owned By</th>
+    <th>Name</th>
+  </tr>
+ <% i = 0 %>
+<% @user.things.each do |thing| %>
+	<% i += 1%>
+  <tr>
+    <td><%= thing.tree.addnum.to_s + " " + thing.tree.addstr %></td>
+	<td><%= thing.tree.species.name%></td>
+	<td> <%= thing.tree.ownership.name %> </td>
+	<td><%= thing.name%></td>
+    </td>
+  </tr>
+<% end %>
+</table>
