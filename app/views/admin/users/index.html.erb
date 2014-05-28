@@ -25,7 +25,7 @@
 <% @users.each do |user| %>
 	<% i += 1%>
   <tr>
-    <td><%= user.id %></td>
+    <td><%= link_to user.id, action: "show", id: user.id %></td>
 	<td><%= user.created_at %></td>
     <td><%= user.name %></td>
 	<td><%= user.organization %></td>
